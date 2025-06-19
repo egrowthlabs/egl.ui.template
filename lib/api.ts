@@ -1,7 +1,8 @@
 import type { UpdateUserDto, CreateUserDto } from '@/lib/types';
 
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5115';
+// const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5115';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://egl-cyrlab-webapp-efb9ac2e4a5a.herokuapp.com';
 
 async function getAuthHeaders() {
   const token = localStorage.getItem('cyrlab-token');
