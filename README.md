@@ -7,15 +7,21 @@ This is a SaaS admin dashboard for CyrLab with secure login and role-based acces
 For demonstration purposes, the application has two mock users:
 
 - **Admin User**
-  - Username: `admin`
-  - Password: `admin123`
+  - Username: `superadmin`
+  - Password: `Admin123!`
   - Role: `Admin`
   - Access: All pages
 
 - **Regular User**
   - Username: `user`
   - Password: `user123`
-  - Role: `User`
+  - Role: `Normal`
+  - Access: Dashboard, Productos, Pedidos, Mantenimientos, Visitas
+  
+  - **Regular Pacheco**
+  - Username: `gpacheco`
+  - Password: `Gpacheco123`
+  - Role: `Admin`
   - Access: Dashboard, Productos, Pedidos, Mantenimientos, Visitas
 
 ## Features

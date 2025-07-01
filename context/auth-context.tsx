@@ -5,7 +5,7 @@ import { createContext, useContext, useState, useEffect, ReactNode } from 'react
 import { useRouter } from 'next/navigation';
 
 // const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5115';
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://egl-cyrlab-webapp-efb9ac2e4a5a.herokuapp.com';
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export interface User {
   id: string;

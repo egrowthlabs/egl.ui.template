@@ -67,11 +67,16 @@ useDebouncedEffect(() => {
       setIsLoading(true);
       const data = await api.getUsers(currentPage, 10, search);
       setUsers(data);
-    } catch (error) {
+      toast({
+        variant: 'default',
+        title: 'Usuarios cargados',
+        description: 'Lista de usuarios actualizada',
+      });
+    } catch (error: any) {
       toast({
         variant: 'destructive',
         title: 'Error',
-        description: 'No se pudieron cargar los usuarios',
+        description: error.message || 'No se pudieron cargar los usuarios',
       });
     } finally {
       setIsLoading(false);
@@ -82,36 +87,39 @@ useDebouncedEffect(() => {
     try {
       await api.createUser(data);
       toast({
+        variant: 'default',
         title: 'Usuario creado',
         description: 'El usuario ha sido creado exitosamente',
       });
       setIsCreateDialogOpen(false);
       loadUsers();
-    } catch (error) {
+    } catch (error: any) {
       toast({
         variant: 'destructive',
         title: 'Error',
-        description: 'No se pudo crear el usuario',
+        description: error.message || 'No se pudo crear el usuario',
       });
     }
   };
 
   const handleUpdateUser = async (data: any) => {
     if (!selectedUser) return;
+
     try {
       await api.updateUser(selectedUser.id, data);
       toast({
+        variant: 'default',
         title: 'Usuario actualizado',
         description: 'El usuario ha sido actualizado exitosamente',
       });
       setIsEditDialogOpen(false);
       setSelectedUser(null);
       loadUsers();
-    } catch (error) {
+    } catch (error: any) {
       toast({
         variant: 'destructive',
         title: 'Error',
-        description: 'No se pudo actualizar el usuario',
+        description: error.message || 'No se pudo actualizar el usuario',
       });
     }
   };
@@ -120,15 +128,16 @@ useDebouncedEffect(() => {
     try {
       await api.deleteUser(userId);
       toast({
+        variant: 'default',
         title: 'Usuario eliminado',
         description: 'El usuario ha sido eliminado exitosamente',
       });
       loadUsers();
-    } catch (error) {
+    } catch (error: any) {
       toast({
         variant: 'destructive',
         title: 'Error',
-        description: 'No se pudo eliminar el usuario',
+        description: error.message || 'No se pudo eliminar el usuario',
       });
     }
   };
